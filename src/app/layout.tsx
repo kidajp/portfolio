@@ -1,17 +1,8 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Noto_Sans, Noto_Sans_Javanese } from "next/font/google";
 import "../_styles/reset.css";
+import "../_styles/font.css";
 import "../_styles/globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,9 +16,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={`${notoSans.variable} ${notoSansJavanese.variable}`}>
         {children}
       </body>
     </html>
   );
 }
+
+const notoSans = Noto_Sans({
+  variable: "--font-noto-sans",
+  subsets: ["latin"],
+});
+const notoSansJavanese = Noto_Sans_Javanese({
+  variable: "--font-noto-sans-javanese",
+  subsets: ["javanese"],
+});
