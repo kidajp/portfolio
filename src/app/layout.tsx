@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
   return (
     <html lang="ja">
-      <body className={`${notoSans.variable}`}>{children}</body>
+      <body className={`Root ${notoSans.variable}`}>{children}</body>
     </html>
   );
 }
