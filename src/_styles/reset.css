@@ -1,66 +1,75 @@
+/* 1. Use a more-intuitive box-sizing model */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
-html {
-  -moz-text-size-adjust: none;
-  -webkit-text-size-adjust: none;
-  text-size-adjust: none;
-}
-body,
-h1,
-h2,
-h3,
-h4,
-p,
-figure,
-blockquote,
-dl,
-dd {
+
+/* 2. Remove default margin */
+* {
   margin: 0;
 }
-ul[role="list"],
-ol[role="list"] {
-  list-style: none;
-}
+
 body {
-  min-height: 100vh;
+  /* 3. Add accessible line-height */
   line-height: 1.5;
+  /* 4. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
 }
-h1,
-h2,
-h3,
-h4,
-button,
-input,
-label {
-  line-height: 1.1;
-}
-h1,
-h2,
-h3,
-h4 {
-  text-wrap: balance;
-}
-a:not([class]) {
-  text-decoration-skip-ink: auto;
-  color: currentColor;
-}
+
+/* 5. Improve media defaults */
 img,
-picture {
-  max-width: 100%;
+picture,
+video,
+canvas,
+svg {
   display: block;
+  max-width: 100%;
 }
+
+/* 6. Inherit fonts for form controls */
 input,
 button,
 textarea,
 select {
   font: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
 }
-textarea:not([rows]) {
-  min-height: 10em;
+
+/* 7. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
 }
-:target {
-  scroll-margin-block: 5ex;
+
+/* 8. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+/*
+  9. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+li {
+  list-style: none;
 }

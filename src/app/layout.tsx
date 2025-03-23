@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Noto_Sans, Noto_Sans_Javanese } from "next/font/google";
+import { Noto_Sans } from "next/font/google";
 import "../_styles/reset.css";
 import "../_styles/font.css";
 import "../_styles/globals.css";
@@ -13,9 +13,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
   return (
     <html lang="ja">
-      <body className={`${notoSans.variable} ${notoSansJavanese.variable}`}>
-        {children}
-      </body>
+      <body className={`${notoSans.variable}`}>{children}</body>
     </html>
   );
 }
@@ -23,8 +21,4 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
 const notoSans = Noto_Sans({
   variable: "--font-noto-sans",
   subsets: ["latin"],
-});
-const notoSansJavanese = Noto_Sans_Javanese({
-  variable: "--font-noto-sans-javanese",
-  subsets: ["javanese"],
 });

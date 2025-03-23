@@ -1,3 +1,4 @@
 body {
-  font-family: var(--font-noto-sans), var(--font-noto-sans-javanese);
+  font-family: var(--font-noto-sans);
+  line-height: 1.5;
 }
