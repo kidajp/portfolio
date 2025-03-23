@@ -1,5 +1,3 @@
-"use clinet";
-
 import { PropsWithChildren } from "react";
 import { Dialog } from "@base-ui-components/react/dialog";
 import styles from "./Skill.module.css";
