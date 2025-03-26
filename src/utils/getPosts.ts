@@ -6,7 +6,7 @@ export const getPosts = async () => {
   const filenames = fs.readdirSync(contentDir);
   const posts = await Promise.all(
     filenames.map(async (filename) => {
-      const { metadata } = await import(`@/content/${filename}.mdx`);
+      const { metadata } = await import(`@/content/${filename}`);
 
       return {
         slug: filename.replace(/\.mdx?$/, ""),
