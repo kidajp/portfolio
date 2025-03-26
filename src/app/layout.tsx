@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Noto_Sans } from "next/font/google";
-import "../_styles/reset.css";
 import "../_styles/font.css";
 import "../_styles/globals.css";
 import { PropsWithChildren } from "react";
