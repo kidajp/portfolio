@@ -9,7 +9,7 @@ export default async function Page({
   const { default: Post, metadata } = await import(`@/content/${slug}.mdx`);
   return (
     <>
-      <h1>{metadata.title}</h1>
+      <h1 className="text-3xl">{metadata.title}</h1>
       <Post />
     </>
   );
