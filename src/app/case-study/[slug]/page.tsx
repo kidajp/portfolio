@@ -1,3 +1,5 @@
+import { getPosts } from "@/utils/getPosts";
+
 export default async function Page({
   params,
 }: {
@@ -5,12 +7,25 @@ export default async function Page({
 }) {
   const { slug } = await params;
   const { default: Post } = await import(`@/content/${slug}.mdx`);
-
   return <Post />;
 }
 
-export function generateStaticParams() {
-  return [{ slug: "current-project" }];
+export async function generateStaticParams() {
+  const posts = await getPosts();
+  return posts.map((post) => ({ slug: post.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const { metadata } = await import(`@/content/${slug}.mdx`);
+
+  return {
+    title: metadata.title,
+  };
 }
 
 export const dynamicParams = false;
