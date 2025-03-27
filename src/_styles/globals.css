@@ -4,7 +4,6 @@
   isolation: isolate;
 }
 
-.main {
-  width: 800px;
-  margin: 0 auto;
+a {
+  @apply text-blue-600 transition-colors hover:text-blue-800;
 }
