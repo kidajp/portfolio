@@ -4,6 +4,12 @@ import createMDX from "@next/mdx";
 const nextConfig = {
   output: "export",
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
+  images: {
+    unoptimized: true,
+  },
+  experimental: {
+    viewTransition: true,
+  },
 };
 
 const withMDX = createMDX({});

@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+.Root {
+  isolation: isolate;
+}
+
+a {
+  @apply text-blue-600 transition-colors hover:text-blue-800;
+}

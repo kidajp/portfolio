@@ -1,0 +1,59 @@
+.wrapper {
+  position: relative;
+}
+
+.circle {
+  --x-pos: calc(var(--_x) / 1440 * 100vw);
+  --y-pos: calc(var(--_y) / 1440 * 100vw);
+  position: absolute;
+  top: var(--y-pos);
+  left: var(--x-pos);
+  display: flex;
+  flex-direction: column;
+  width: calc(560 / 1440 * 100vw);
+  height: calc(560 / 1440 * 100vw);
+  border-radius: 50%;
+  mix-blend-mode: multiply;
+}
+.circle-business {
+  --_x: 650;
+  --_y: 412;
+  composes: circle;
+  background: #f7fff8;
+  border: 1px solid #00a927;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.circle-creativity {
+  --_x: 440;
+  --_y: 52;
+  composes: circle;
+  background: #fff7f7;
+  border: 1px solid #ff6666;
+  align-items: center;
+}
+.circle-technology {
+  --_x: 230;
+  --_y: 412;
+  composes: circle;
+  background: #fcfcff;
+  border: 1px solid #667aff;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+.title {
+  text-transform: capitalize;
+}
+.title-business {
+  composes: title;
+  color: #00a927;
+}
+.title-creativity {
+  composes: title;
+  color: #ff6666;
+  margin-top: -22px;
+}
+.title-technology {
+  composes: title;
+  color: #667aff;
+}
