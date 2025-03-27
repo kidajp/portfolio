@@ -6,7 +6,7 @@ export const Skill = ({ children }: PropsWithChildren) => {
   return (
     <li>
       <Dialog.Root>
-        <Dialog.Trigger className={styles.skill}>{children}</Dialog.Trigger>
+        <Dialog.Trigger className="cursor-pointer">{children}</Dialog.Trigger>
         <Dialog.Portal>
           <Dialog.Backdrop className={styles.backdrop} />
           <Dialog.Popup className={styles.popup}>

@@ -10,10 +10,13 @@ export const getPosts = async () => {
 
       return {
         slug: filename.replace(/\.mdx?$/, ""),
+        description: metadata.description,
         title: metadata.title,
         date: metadata.date,
+        cover: metadata.cover,
+        members: metadata.members,
       };
-    })
+    }),
   );
   return posts;
 };

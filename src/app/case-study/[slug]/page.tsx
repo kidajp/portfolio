@@ -1,4 +1,6 @@
 import { getPosts } from "@/utils/getPosts";
+import { CheckIcon } from "@heroicons/react/24/solid";
+import Image from "next/image";
 
 export default async function Page({
   params,
@@ -9,8 +11,45 @@ export default async function Page({
   const { default: Post, metadata } = await import(`@/content/${slug}.mdx`);
   return (
     <>
-      <h1 className="text-3xl">{metadata.title}</h1>
-      <Post />
+      <header className="bg-source - mx-[calc(50%-50vw)] my-0 bg-gray-100">
+        <div className="relative mx-auto w-[800px] pt-24 pr-76 pb-8 pl-6">
+          <p className="mb-2 text-sm text-gray-500">{metadata.date}</p>
+          <h1 className="mb-6 text-3xl font-bold">{metadata.title}</h1>
+          <div className="flex gap-16">
+            <section>
+              <h2 className="mb-2 text-xs text-gray-500">担当領域</h2>
+              <ul className="grid gap-2">
+                {metadata.role.map((role: string) => (
+                  <li key={role} className="flex items-center gap-2">
+                    <CheckIcon className="h-4 w-4 text-emerald-600" />
+                    {role}
+                  </li>
+                ))}
+              </ul>
+            </section>
+            <section>
+              <h2 className="mb-2 text-xs text-gray-500">メンバー構成</h2>
+              <ul className="grid gap-2">
+                {metadata.members.map((member: string) => (
+                  <li key={member} className="flex items-center gap-2">
+                    {member}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          </div>
+          <Image
+            width={1600}
+            height={900}
+            src={metadata.cover}
+            alt={metadata.title}
+            className="absolute -right-44 bottom-0 h-full w-auto"
+          />
+        </div>
+      </header>
+      <section className="pt-10">
+        <Post />
+      </section>
     </>
   );
 }

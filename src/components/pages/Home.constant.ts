@@ -13,6 +13,10 @@ export const SKILL_LIST = [
       {
         name: "UIデザイン",
       },
+      {
+        name: "デザインシステム",
+      },
+      { name: "Figma" },
     ],
   },
   {
@@ -20,6 +24,18 @@ export const SKILL_LIST = [
     skills: [
       {
         name: "HTML",
+      },
+      {
+        name: "CSS",
+      },
+      {
+        name: "JavaScript(TypeScript)",
+      },
+      {
+        name: "React(Next.js)",
+      },
+      {
+        name: "Storybook",
       },
     ],
   },
