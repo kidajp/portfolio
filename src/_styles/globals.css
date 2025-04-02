@@ -7,3 +7,14 @@
 a {
   @apply text-blue-600 transition-colors hover:text-blue-800;
 }
+
+@theme {
+  @keyframes slideUp {
+    0% {
+      transform: translateY(1.3em);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+}
