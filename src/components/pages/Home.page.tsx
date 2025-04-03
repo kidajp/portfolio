@@ -1,29 +1,34 @@
 import { PropsWithChildren } from "react";
-import { SKILL_LIST } from "./Home.constant";
-import { Skill } from "./_skill/Skill";
-import { Works } from "./_skill/_works/Works";
+import { SKILL_LIST, SkillType } from "./Home.constant";
+import { Works } from "./_works/Works";
 import { cn } from "@/utils/cn";
-import { CSSProperties } from "react";
 
 export default function HomePage() {
   return (
     <div className="flex flex-col gap-20 py-20">
-      <section>
-        <h1 className="text-8xl">
-          <TextWithSlideUp text="はじめまして" />
+      <section className="pt-24">
+        <h1 className="palt text-8xl font-bold">
+          はじめまして
+          <span className="animate-wiggle inline-block">👋</span>
         </h1>
       </section>
+
       <section>
         <Title>自己紹介</Title>
         <Description>
-          デザインに領域を閉じず、エンジニアリングにも染み出してきました。
+          UXリサーチを通じたユーザー理解とフロントエンドの実装知識を活かし、事業とユーザー双方に価値をもたらすプロダクトデザインをリードできること。
         </Description>
-        <p>
-          あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。
-          <br />
-          まるでその黒きろきちらひれた髪の毛、
-          <br />
-        </p>
+        <div className="grid gap-3">
+          <p>
+            私はデジタルプロダクトデザイナーとして、6年間LINEヤフー株式会社に従事してきました。UXリサーチを通じてユーザー理解を深め、当事者意識を持って価値を届けることを大切にしています。
+          </p>
+          <p>
+            単なる表層的なデザインにとどまらず、リサーチで得たインサイトを元に本質的な課題を捉え、それをプロダクトに反映できるデザインを目指してきました。
+          </p>
+          <p>
+            また、フロントエンド開発も積極的に学習し、エンジニアと建設的な対話を重ねてきました。技術的な制約を理解した上でのデザイン提案や、実際のコードを用いたプロトタイピングを通じて、アイデアの実現可能性を検証してきました。デザインシステムの構築と改善にも携わり、保守性と一貫性を備えたUIの実現に貢献してきました。
+          </p>
+        </div>
       </section>
 
       <section>
@@ -35,17 +40,6 @@ export default function HomePage() {
         <div className="grid gap-12">
           <section>
             <SubTitle>
-              N=1とデータ分析、両方の視点からユーザーの課題を見つけ、プロダクトデザインに落とし込んできました。
-            </SubTitle>
-            <p>
-              A/Bテストを起点にユーザー理解を深め、さまざまなデザインパターンを検討した経験があります。
-            </p>
-            <p>
-              また、営業の方のご協力のもとフィールドスタディを経て、デザインの確らしさを検証した経験があります。
-            </p>
-          </section>
-          <section>
-            <SubTitle>
               一つの事業領域の中でtoB向け、toC向けのデザインを行った経験があります。
             </SubTitle>
             <p>
@@ -54,6 +48,21 @@ export default function HomePage() {
               ユーザーの課題を抽出し、プロダクトデザインとして具体化する能力を身につけています。
             </p>
           </section>
+
+          <section>
+            <SubTitle>
+              N=1とデータ分析、両方の視点からユーザーの課題を見つけ、プロダクトデザインに落とし込んできました。
+            </SubTitle>
+            <p>
+              A/Bテストを起点にユーザー理解を深め、さまざまなデザインパターンを検討した経験があります。
+            </p>
+            <p>
+              また、営業の方のご協力のもとフィールドスタディを経て、デザインの確らしさを検証した経験があります。
+            </p>
+            <SkillList skillType="methods" />
+            <SkillList skillType="tools" />
+          </section>
+
           <section>
             <SubTitle>
               モダンフレームワークを利用したWebフロントエンドの開発経験
@@ -66,30 +75,8 @@ export default function HomePage() {
               また、Figma,
               Storybookを使ったデザインシステムの構築を経験しているため、全体最適化を考慮したプロダクトデザインを行うことができます。
             </p>
+            <SkillList skillType="technical" />
           </section>
-        </div>
-        <div className="grid grid-cols-3 gap-4">
-          {SKILL_LIST.map(({ skill_type, skills }, index) => (
-            <section
-              key={index}
-              className="flex flex-col gap-4 rounded-md border border-gray-300 p-4"
-            >
-              <h3
-                className={cn("text-sm font-bold capitalize", {
-                  "text-rose-700": skill_type === "creativity",
-                  "text-indigo-700": skill_type === "technology",
-                  "text-emerald-700": skill_type === "business",
-                })}
-              >
-                {skill_type}
-              </h3>
-              <ul className="flex flex-col gap-2">
-                {skills.map(({ name }, index) => (
-                  <Skill key={index}>{name}</Skill>
-                ))}
-              </ul>
-            </section>
-          ))}
         </div>
       </section>
 
@@ -105,38 +92,57 @@ export default function HomePage() {
   );
 }
 
+/**
+ * タイトル
+ */
 const Title = ({
   children,
   className,
 }: PropsWithChildren<{ className?: string }>) => {
   return (
-    <h2 className={cn("mb-4 text-6xl font-bold", className)}>{children}</h2>
+    <h2 className={cn("palt mb-4 text-5xl font-bold", className)}>
+      {children}
+    </h2>
   );
 };
 
+/**
+ * 説明文
+ */
 const Description = ({ children }: PropsWithChildren) => {
   return <p className="mb-6 text-gray-500">{children}</p>;
 };
 
+/**
+ * サブタイトル
+ */
 const SubTitle = ({ children }: PropsWithChildren) => {
   return <h3 className="mb-3 block text-xl font-bold">{children}</h3>;
 };
 
-const TextWithSlideUp = ({ text }: { text: string }) => {
-  const TextArray = text.split("");
+/**
+ * スキルリスト
+ */
+const SkillList = ({ skillType }: { skillType: SkillType }) => {
+  const title =
+    skillType === "methods"
+      ? "手法"
+      : skillType === "tools"
+        ? "ツール"
+        : "技術";
+
   return (
-    <div className="overflow-hidden">
-      {TextArray.map((char, index) => (
-        <span
-          key={index}
-          style={{ "--slide-up-index": index } as CSSProperties}
-          aria-hidden
-          className={`inline-block animate-[slideUp_calc(0.16s_*var(--slide-up-index))_var(--ease-in-out)_forwards]`}
-        >
-          {char}
-        </span>
-      ))}
-      <span className="sr-only">{text}</span>
-    </div>
+    <section className="flex items-start gap-2">
+      <h3 className="font-bold">{title}</h3>
+      <ul className="flex flex-wrap gap-2">
+        {SKILL_LIST.filter(
+          ({ skill_type }) => skill_type === skillType,
+        )[0].skills.map(({ name }, index) => (
+          <li key={index} className="rounded-md bg-gray-100 px-2 py-1">
+            {name}
+          </li>
+        ))}
+      </ul>
+    </section>
   );
 };
