@@ -132,13 +132,13 @@ const SkillList = ({ skillType }: { skillType: SkillType }) => {
         : "技術";
 
   return (
-    <section className="flex items-start gap-2">
+    <section className="mt-8 grid grid-cols-[60px_auto] gap-2">
       <h3 className="font-bold">{title}</h3>
       <ul className="flex flex-wrap gap-2">
         {SKILL_LIST.filter(
           ({ skill_type }) => skill_type === skillType,
         )[0].skills.map(({ name }, index) => (
-          <li key={index} className="rounded-md bg-gray-100 px-2 py-1">
+          <li key={index} className="rounded-md bg-amber-50 px-2 py-1">
             {name}
           </li>
         ))}
