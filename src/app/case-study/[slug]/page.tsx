@@ -1,6 +1,5 @@
 import { getPosts } from "@/utils/getPosts";
 import { CheckIcon } from "@heroicons/react/24/solid";
-import Image from "next/image";
 
 export default async function Page({
   params,
@@ -12,7 +11,7 @@ export default async function Page({
   return (
     <>
       <header className="bg-source - mx-[calc(50%-50vw)] my-0 bg-gray-100">
-        <div className="relative mx-auto w-[800px] pt-24 pr-76 pb-8 pl-6">
+        <div className="relative mx-auto w-[800px] px-6 pt-24 pb-8">
           <p className="mb-2 text-sm text-gray-500">{metadata.date}</p>
           <h1 className="mb-6 text-3xl font-bold">{metadata.title}</h1>
           <div className="flex gap-16">
@@ -38,13 +37,6 @@ export default async function Page({
               </ul>
             </section>
           </div>
-          <Image
-            width={1600}
-            height={900}
-            src={metadata.cover}
-            alt={metadata.title}
-            className="absolute -right-44 bottom-0 h-full w-auto"
-          />
         </div>
       </header>
       <section className="pt-10">
